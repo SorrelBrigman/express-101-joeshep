@@ -11,6 +11,7 @@ dogRouter.get('/puppies', (req, res, next)=>{
 });
 
 dogRouter.post('/puppies', (req, res, next)=>{
+
   res.send(`<img src="http://i.imgur.com/mYXW5bF.jpg">`)
 });
 
