@@ -1,6 +1,8 @@
 const {Router} = require('express');
 const path = require('path');
 
+//
+const {newPage, submit} = require('../controllers/animalcontrol')
 const animalRouter = Router();
 
 //applying middleware to all routes in this router
@@ -15,18 +17,13 @@ const animalRouter = Router();
 animalRouter.get('/monkeys', (req, res, next)=>{
   console.log("Fetching some Monkeys");
   console.log("this ran at ${req.requestedTime}")
-  res.sendFile(path.join(__dirname,  '../public',  'monkeys.html'))
+  // res.sendFile(path.join(__dirname,  '../public',  'monkeys.html'))
+  newPage(req, res);
 })
 
-animalRouter.get('/chickens', (req, res, next)=>{
-  console.log('looking for chickens')
-  res.send(`<h3>No chickens for you</h3><form method="POST"><input type="text"><button type="submit">push</button></form>`);
-})
+animalRouter.get('/chickens', newPage);
 
-animalRouter.post('/chickens', (req, res, next)=>{
-  console.log("Posting a form for chickens");
-  res.send('nothing here but us chickens');
-})
+animalRouter.post('/chickens', submit);
 
 
 module.exports = animalRouter;
