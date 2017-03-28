@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const path = require('path');
+// const path = require('path');
 
 //
 const {newPage, submit} = require('../controllers/animalcontrol')
